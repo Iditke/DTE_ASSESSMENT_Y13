@@ -287,14 +287,14 @@ body{
 
 .content{
 	display: flex;
-	height:30vw;
+	min-height:30vw;
 	
 }
 
 .text{
 	display: flex;
 	flex:50;
-	padding:50px;
+	padding:20px;
 	text-align:center;
 	justify-content:space-around;
 	border-bottom: 2px dashed #000;
@@ -306,15 +306,6 @@ body{
 	height: 20vw;
 	object-fit: cover;
 }
-.product-present{
-	display:flex;
-	flex:50;
-	flex-direction:column; 
-	padding:2.5%;
-	justify-content:center;
-	align-items:center;
-	border-bottom: 2px dashed #000;
-}
 
 .product-title{
 	display:flex;
@@ -323,13 +314,24 @@ body{
 	margin:30px;
 }
 
+.product-button{
+    margin-right: 50px;
+}
+
 .title{
 	flex:1;	
 }
 
+.flex-cards{
+    display:flex;
+    flex-direction: row;
+    flex-grow:1;
+    flex-wrap:wrap;
+}
 
 .card{
 	margin:1vw !important;
+    max-width:540px;
 }
 
 .card-image{
@@ -358,7 +360,6 @@ body{
 @media screen and (max-width: 992px) {
     .content {
         flex-direction: column;
-        height: auto; 
         min-height: 100%; 
     }
 	
