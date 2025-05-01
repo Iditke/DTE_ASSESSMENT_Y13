@@ -40,8 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 		$loginError = true;
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								<input type='submit' value='Login' class="btn btn-primary" data-backdrop="static">
+								<input type='submit' value='Login' class="btn btn-primary modal-button" data-backdrop="static">
 							</div>
 						</div>
 					</div>
@@ -163,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="errorModalLabel">Login Failed</h5>
+					<h5 class="modal-title">Login Failed</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
@@ -171,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModalLabel">Try Again</button>
+					<button type="button" class="btn btn-primary modal-button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModalLabel">Try Again</button>
 				</div>
 			</div>
 		</div>

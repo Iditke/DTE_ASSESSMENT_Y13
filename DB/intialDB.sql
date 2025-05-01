@@ -35,3 +35,9 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`) VALUES (N
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`) VALUES (NULL, 'Whole-House Filter', 'Multi-stage whole-house system removes chlorine and metals, ensuring vital, clean water for every tap.', 'images/waterfilter5.jpg', '999.99');
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`) VALUES (NULL, 'Portable Filter', 'A super-lightweight straw filter removes 99.9999% of bacteria for radiant, safe water on the go.', 'images/waterfilter6.jpg', '19.99');
+
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`) VALUES (NULL, 'Shower Filter', 'Shower filter reduces chlorine for serene, soft water, enhancing skin and hair health.', 'images/waterfilter7.jpg', '59.99');
+
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`) VALUES (NULL, 'Reverse Osmosis System', 'Tankless RO system removes 99% of contaminants, delivering sparkling, mineral-rich water for large households.', 'images/waterfilter8.jpg', '599.99');
+
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`) VALUES (NULL, 'Gravity Filter', 'Stainless-steel gravity filter purifies 2.25 gallons, removing pathogens for fresh, tranquil water without electricity.', 'images/waterfilter9.jpg', '399.99');

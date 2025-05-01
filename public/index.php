@@ -4,9 +4,10 @@
 <?php include(SHARED_PATH . '/header.php'); ?>
 <!-- query database-->
 <?php
-$sql = "SELECT id, name, description, image, price FROM products";
-$result = $conn->query($sql);
+    $sql = "SELECT id, name, description, image, price FROM products LIMIT 6";
+    $result = $conn->query($sql);
 ?>
+
 <section class="home">
     <!-- carousel -->
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
