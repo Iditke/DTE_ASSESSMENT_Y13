@@ -113,7 +113,7 @@
             <div>
                 <div class="product-title">
                     <h2>Our Products</h2>
-                    <button type="button" class="btn btn-outline-dark product-button" onclick="window.location.href='/public/products/products.php'">More product >></button>
+                    <button type="button" class="btn btn-outline-dark product-button" onclick="window.location.href='<?php echo WWW_ROOT; ?>/products/products.php'">More product >></button>
                 </div>
                 <div class="flex-cards">
                     <?php
@@ -130,7 +130,7 @@
                                         <p class="card-text"><?php echo $row['description']; ?></p>
                                         <div class="split">
                                             <p class="card-text"><small class="text-body-secondary">$<?php echo $row['price']; ?></small></p>
-                                            <button type="button" class="btn btn-outline-dark" onclick="window.location.href='/public/products/products.php?search=<?php echo $row['name']; ?>'">Purchase</button>
+                                            <button type="button" class="btn btn-outline-dark" onclick="window.location.href='<?php echo WWW_ROOT; ?>/products/products.php?search=<?php echo $row['name']; ?>'">Purchase</button>
                                         </div>
                                     </div>
                                 </div>

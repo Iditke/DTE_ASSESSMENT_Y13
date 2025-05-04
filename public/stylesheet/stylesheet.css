@@ -479,7 +479,7 @@ body {
 /*Contacts*/
 
 .contact-section {
-    background-image: url("/public/images/background7.png");
+    background-image: url("../images/background7.png");
     min-height: 100vh;
     display: flex;
     flex-direction: row;

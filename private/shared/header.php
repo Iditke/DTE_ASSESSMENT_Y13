@@ -6,13 +6,13 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if (isset($_GET['logout']) && $_GET['logout'] == '1') {
     unset($_SESSION['username']);
-    header("Location: /public/index.php");
+    header("Location: " . WWW_ROOT . "/index.php");
     exit();
 }
 
 if (isset($_POST['search'])) {
     $search_query = isset($_POST['search_query']) ? urlencode($_POST['search_query']) : '';
-    header("Location:/public/products/products.php?search=$search_query");
+    header("Location:" . WWW_ROOT . "/products/products.php?search=$search_query");
     exit();
 }
 
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
     $stmt = $conn->prepare("SELECT * FROM login WHERE username = ?");
     $stmt->execute([$username]);
     $login = $stmt->fetch();
-    
+
     if ($login && $login["password"] === $password) {
         $_SESSION['username'] = $username;
 
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 <html lang="en">
 <head>
 	<!-- Link to CSS file -->
-    <link href='/public/stylesheet/stylesheet.css' rel="stylesheet">
+    <link href='<?php echo WWW_ROOT; ?>/stylesheet/stylesheet.css' rel="stylesheet">
     <meta charset="UTF-8">
     <title>Water cleaner</title>
 	<!-- Make the website usable on diffrent devices -->
@@ -59,18 +59,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 	<!-- link bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 	<!-- link Javascript-->
-	<script src="/public/script/script.js"></script>
+	<script src="<?php echo WWW_ROOT; ?>/script/script.js"></script>
 
 	<!-- Navbar -->
 	<nav class="navbar sticky-top">
 	  <div class="container-fluid">
 		<div>
-			<a class="navbar-brand whitetext" href="/public/index.php">
-				<img src="/public/images/wavelogo.svg" alt="Logo" class="d-inline-block align-text-top logo">
+			<a class="navbar-brand whitetext" href="<?php echo WWW_ROOT; ?>/index.php">
+				<img src="<?php echo WWW_ROOT; ?>/images/wavelogo.svg" alt="Logo" class="d-inline-block align-text-top logo">
 				ClearFlow
 			</a>
 		</div>
-		  
+
 		<div class="hidden-thin inline">
 
 			<!-- Modal -->
@@ -101,27 +101,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0 links">
 				<li class="nav-item">
 					<button type="button" class="nav-link whitetext" data-bs-toggle="modal" data-bs-target="#exampleModalLabel" <?php echo (empty($_SESSION['username']) ? '' : 'hidden'); ?>>Login</button>
-					<a class="nav-link whitetext" href="/public/index.php?logout=1" <?php echo (empty($_SESSION['username']) ? 'hidden' : ''); ?>>Logout</a>
+					<a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/index.php?logout=1" <?php echo (empty($_SESSION['username']) ? 'hidden' : ''); ?>>Logout</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link whitetext" href="/public/products/products.php">Products</a>
+					  <a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/products/products.php">Products</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link whitetext" href="/public/contacts/contacts.php">Contacts</a>
+					  <a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/contacts/contacts.php">Contacts</a>
 				</li>
 				<li class="nav-item">
-					  <a class="nav-link whitetext" href="/public/FAQ/FAQ.php">FAQ</a>
+					  <a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/FAQ/FAQ.php">FAQ</a>
 				</li>
 			</ul>
 		</div>
 		<div class="hidden-thin row1">
-			<form class="d-flex split" method="POST" role="search" action="/public/products/products.php">
+			<form class="d-flex split" method="POST" role="search" action="<?php echo WWW_ROOT; ?>/products/products.php">
 				<button class="btn btn-outline-success search" type="submit" name="search">Search</button>
 				<input class="form-control me-2 search-input" name="search_query" onkeyup="myFunction()" placeholder="Search items..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
 			</form>
-			<a href="/public/cart/cart.php"><img src="/public/images/cart.png" alt="cart" height="30" class="cart-logo"></a>
+			<a href="<?php echo WWW_ROOT; ?>/cart/cart.php"><img src="<?php echo WWW_ROOT; ?>/images/cart.png" alt="cart" height="30" class="cart-logo"></a>
 			<div <?php echo (empty($_SESSION['username']) ? 'hidden' : ''); ?> class="profile">
-				<img src="/public/images/user.jpg" alt="cart" height="30" class="cart-logo">
+				<img src="<?php echo WWW_ROOT; ?>/images/user.jpg" alt="cart" height="30" class="cart-logo">
 				<div class="username">
 					<p class="profile-name whitetext"><?php echo empty($_SESSION['username']) ? '' : $_SESSION['username'] ?></p>
 				</div>
@@ -131,26 +131,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username']) && isset($
 		<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse hidden-wide" id="navbarNav">
-		<form class="d-flex split" method="POST" role="search" action="/public/products/products.php">
+		<form class="d-flex split" method="POST" role="search" action="<?php echo WWW_ROOT; ?>/products/products.php">
 			<button class="btn btn-outline-success search" type="submit" name="search">Search</button>
 			<input class="form-control me-2 search-input" name="search_query" onkeyup="myFunction()" placeholder="Search items..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
-			<a href="/public/cart/cart.php"><img src="/public/images/cart.png" alt="cart" height="30" class="cart-logo"></a>
+			<a href="<?php echo WWW_ROOT; ?>/cart/cart.php"><img src="<?php echo WWW_ROOT; ?>/images/cart.png" alt="cart" height="30" class="cart-logo"></a>
 		</form>
 		  <ul class="navbar-nav">
 			<li class="nav-item">
-			  <a class="nav-link whitetext" aria-current="page" href="/public/index.php">Home</a>
+			  <a class="nav-link whitetext" aria-current="page" href="<?php echo WWW_ROOT; ?>/index.php">Home</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link whitetext" href="#">Login</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link whitetext" href="/public/products/product.php">Products</a>
+			  <a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/products/product.php">Products</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link whitetext" href="/public/contacts/contacts.php">Contact</a>
+			  <a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/contacts/contacts.php">Contact</a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link whitetext" href="/public/FAQ/FAQ.php">FAQ</a>
+			  <a class="nav-link whitetext" href="<?php echo WWW_ROOT; ?>/FAQ/FAQ.php">FAQ</a>
 			</li>
 		  </ul>
 		</div>
